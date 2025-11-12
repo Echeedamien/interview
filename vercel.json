@@ -1,11 +1,11 @@
-// {
+{
   "version": 2,
   "builds": [
     {
       "src": "app.py",
       "use": "@vercel/python",
       "config": {
-        "maxLambdaSize": "100mb"  // Increase for dependencies like spaCy/ffmpeg
+        "maxLambdaSize": "100mb"
       }
     }
   ],
