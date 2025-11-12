@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume-Based Interview</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎯 Resume-Based Interview Practice</h1>
+        <p><strong>Detected Skills:</strong> {{ skills|join(', ') }}</p>
+
+        <h3>Question {{ session.current_question_index + 1 }}:</h3>
+        <p>{{ question }}</p>
+
+        <form method="POST" action="/submit_resume_answer">
+            <textarea name="answer" rows="4" cols="60" placeholder="Type your answer here..."></textarea><br>
+            <button type="submit">Next ➡️</button>
+        </form>
+
+        <a href="/">← Back to Dashboard</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload Resume</title>
+    <style>
+        body {
+            background: #f4f7fa;
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+        .box {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        input[type="file"] { margin: 20px; }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 25px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>📄 Upload Your Resume</h2>
+        {% if feedback %}<p style="color:red;">{{ feedback }}</p>{% endif %}
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="resume" required><br>
+            <button type="submit">Analyze Resume</button>
+        </form>
+        <br>
+        <a href="/">← Back Home</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ skill_name }} - Skill Review</title>
+    <style>
+        body {
+            background: #f5f7fa;
+            font-family: "Segoe UI", sans-serif;
+            text-align: center;
+            padding: 60px;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            display: inline-block;
+            width: 70%;
+            text-align: left;
+        }
+        .entry {
+            background: #f8f8f8;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        h2 { text-align: center; }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        button:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📘 {{ skill_name }} Practice Review</h2>
+        <p><strong>Average Score:</strong> {{ avg_score }}/3</p>
+
+        {% for h in history %}
+            <div class="entry">
+                <strong>Q{{ loop.index }}:</strong> {{ h.question }}<br>
+                <em>Answer:</em> {{ h.answer }}<br>
+                <strong>Score:</strong> {{ h.score }}/3
+            </div>
+        {% endfor %}
+
+    <div style="text-align:center;margin-top:30px;">
+        <form method="POST" action="/resume_mock_start">
+            <input type="hidden" name="skill_name" value="{{ skill_name }}">
+            <button type="submit">🎙️ Start Resume-Based Mock</button>
+        </form>
+        <br>
+        <a href="/dashboard">← Back to Dashboard</a>
+    </div>
+    </div>
+</body>
+</html>

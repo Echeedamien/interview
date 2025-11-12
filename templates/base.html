@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title or "Interview Bot" }}</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        /* NEW: Interactive animated gradient background */
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c, #4facfe, #00f2fe);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite; /* Slow, looping animation for interactivity */
+        }
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        /* Enhanced card for better contrast */
+        .card {
+            background: rgba(255, 255, 255, 0.95); /* Semi-transparent for depth */
+            padding: 25px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            width: 320px;
+            text-align: center;
+            backdrop-filter: blur(10px); /* Adds a frosted glass effect */
+        }
+        h2 {
+            color: #333;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover { text-decoration: underline; }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

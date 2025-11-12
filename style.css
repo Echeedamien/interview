@@ -1,0 +1,356 @@
+/* ===============================
+   GLOBAL STYLES (Apply to All Pages)
+   =============================== */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: white;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+a {
+    text-decoration: none;
+}
+
+button, input {
+    font-family: inherit;
+}
+
+/* ===============================
+   LANDING PAGE STYLES (Use <body class="landing">)
+   =============================== */
+body.landing {
+    height: 100vh;
+    position: relative;
+}
+
+/* Slideshow background with zoom effect */
+body.landing .slideshow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+body.landing .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+body.landing .slide.active {
+    opacity: 1;
+    transform: scale(1.05); /* Subtle zoom for mind-blowing effect */
+}
+
+/* Top horizontal navigation - same line with visible colors */
+body.landing .top-nav {
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex; /* Ensures same horizontal line */
+    gap: 20px;
+    z-index: 10;
+}
+
+body.landing .top-nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent dark background for visibility */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+    transition: all 0.3s ease;
+}
+
+body.landing .top-nav a:hover {
+    background: rgba(0, 0, 0, 0.8); /* Darker on hover */
+    transform: translateY(-5px); /* Bounce effect */
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); /* Glow for visibility */
+}
+
+body.landing .top-nav a.logout {
+    color: #ff4444; /* Shouty red text */
+    background: rgba(255, 255, 255, 0.9); /* White background for the box */
+    font-weight: bold;
+    font-size: 1.2em;
+    animation: pulse 2s infinite; /* Pulsing for attention */
+}
+
+body.landing .top-nav a.logout:hover {
+    background: rgba(255, 255, 255, 1); /* Solid white on hover */
+    box-shadow: 0 0 15px rgba(255, 68, 68, 0.8);
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* Center content with glassmorphism and animations */
+body.landing .center-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1); /* Glassmorphism effect */
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -60%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+body.landing h1 {
+    font-size: 3.5em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.8); /* Glow effect */
+    font-weight: bold;
+}
+
+body.landing p {
+    font-size: 1.3em;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px rgba(255,255,255,0.6);
+}
+
+/* Floating particles for mind-blowing effect */
+body.landing .particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body.landing .particle {
+    position: absolute;
+    background: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); }
+    100% { transform: translateY(-100vh) rotate(360deg); }
+}
+
+/* ===============================
+   LOGIN PAGE STYLES (Use <body class="login">)
+   =============================== */
+body.login {
+    background: linear-gradient(to bottom, #e3f2fd, #ffffff); /* Simple, soothing gradient */
+    text-align: center;
+    padding-top: 80px;
+}
+
+body.login .login-box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: inline-block;
+    width: 350px;
+}
+
+body.login input, body.login button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    width: 80%;
+    font-size: 14px;
+}
+
+body.login button {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+body.login button:hover { background: #0056b3; }
+
+body.login a { color: #007bff; text-decoration: none; }
+
+body.login a:hover { text-decoration: underline; }
+
+body.login .footer-links {
+    margin-top: 15px;
+}
+
+/* ===============================
+   DASHBOARD PAGE STYLES (Use <body class="dashboard">)
+   =============================== */
+body.dashboard {
+    background-image: url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&h=800&fit=crop'); /* Soothing, peaceful nature/workspace image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+body.dashboard .overlay {
+    background: rgba(0,0,0,0.4); /* Light overlay for peacefulness */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+body.dashboard h1 {
+    color: white;
+    margin-top: 40px;
+}
+
+body.dashboard .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+body.dashboard .skill-card {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+    width: 30%;
+    display: inline-block;
+    margin: 10px;
+}
+
+body.dashboard .skill-card:hover {
+    transform: translateY(-5px);
+}
+
+body.dashboard .skill-title {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #007bff;
+}
+
+body.dashboard .metric {
+    color: #555;
+    font-size: 0.95em;
+}
+
+body.dashboard .nav {
+    background: rgba(0,123,255,0.9);
+    padding: 10px;
+    text-align: center;
+}
+
+body.dashboard .nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 500;
+}
+
+body.dashboard .nav a:hover {
+    text-decoration: underline;
+}
+
+body.dashboard .back-btn {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    margin-top: 30px;
+}
+
+body.dashboard .back-btn:hover {
+    background: #0056b3;
+}
+
+/* ===============================
+   OTHER PAGES STYLES (e.g., forgot_password, mock_session, etc. - Use <body class="other">)
+   =============================== */
+body.other {
+    background-image: url('https://images.unsplash.com/photo-1586281380349-632531db7ed4?w=1200&h=800&fit=crop'); /* Job interview-themed background (e.g., resume/document) */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+}
+
+body.other .overlay {
+    background: rgba(0,0,0,0.5); /* Overlay for readability */
+    min-height: 100vh;
+    padding: 20px;
+}
+
+body.other .box {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    display: inline-block;
+    backdrop-filter: blur(10px);
+}
+
+body.other input, body.other button {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+}
+
+body.other button {
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+body.other button:hover {
+    background: #0056b3;
+}
+
+/* ===============================
+   RESPONSIVE DESIGN (Applies to All Pages)
+   =============================== */
+@media (max-width: 768px) {
+    body.landing .top-nav {
+        flex-direction: column; /* Stack vertically on mobile */
+        gap: 10px;
+    }
+    body.landing h1 {
+        font-size: 2.5em;
+    }
+    body.landing p {
+        font-size: 1.1em;
+    }
+    body.login .login-box {
+        width: 90%;
+    }
+    body.dashboard .skill-card {
+        width: 90%;
+    }
+}

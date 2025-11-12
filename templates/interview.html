@@ -1,0 +1,47 @@
+<h2>Interview Practice</h2>
+
+{% if question %}
+  <div id="question-box">
+    <p><strong>Question:</strong> {{ question }}</p>
+  </div>
+{% else %}
+  <p>No question available. <a href="/next_question">Get a new one</a></p>
+{% endif %}
+
+<form method="POST" action="/submit_answer">
+  <textarea name="answer" rows="6" cols="60" placeholder="Type your answer here..." required></textarea><br><br>
+  <button type="submit">Submit Answer</button>
+</form>
+
+{% if feedback %}
+  <div style="margin-top:20px; padding:10px; border:1px solid #ccc;">
+    <h3>Feedback</h3>
+    <p>{{ feedback }}</p>
+    <p><strong>Score:</strong> {{ score }}/10</p>
+  </div>
+{% endif %}
+
+<p><a href="/next_question">Next Question</a></p>
+<!-- NEW: Wrap in a styled container with background -->
+<style>
+    body {
+        background: linear-gradient(45deg, #667eea, #764ba2, #f093fb, #f5576c);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+        font-family: "Segoe UI", sans-serif;
+        text-align: center;
+        padding: 40px;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    div {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        border-radius: 10px;
+        display: inline-block;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+</style>

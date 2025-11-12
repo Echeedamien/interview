@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Start Mock Interview</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <h1>Start Mock Interview</h1>
+  <form method="POST" action="/mock/start">
+    <label>Role:</label>
+    <select name="role">
+      <option value="">--General--</option>
+      {% for r in roles %}
+      <option value="{{ r }}">{{ r }}</option>
+      {% endfor %}
+    </select>
+    <br><br>
+
+    <label>Seconds per question:</label>
+    <input type="number" name="duration" value="60" min="20" max="600">
+    <br><br>
+
+    <label>Paste resume text (optional):</label><br>
+    <textarea name="resume_text" rows="6" cols="60" placeholder="Paste resume text to generate resume-specific questions..."></textarea>
+    <br><br>
+
+    <button type="submit">Start Interview</button>
+  </form>
+
+  <p><a href="/">← Back</a></p>
+</body>
+</html>
